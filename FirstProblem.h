@@ -14,8 +14,8 @@
 /* Part A: Representation of finite sets by tables */
 /***************************************************/
 
-/**************************************/
-/* Question 1: Set Table Verification */
+/***************/
+/* Question 1 */
 typedef int (*set_table_verify) (const unsigned int [], int);
 int do_setTableVerify(set_table_verify op, const unsigned int T[], int length) {
     return op(T, length);
@@ -29,7 +29,12 @@ int setTableVerify(const unsigned int T[], int n) {//2, 3, 5, 3, 5
     return 1;
 }
 
-
+/***************/
+/* Question 2 */
+int do_belongIntoSetTable(int (*op) (const unsigned int [], int, int), const unsigned int T[], int length, int value) {
+    return op(T, length, value);
+}
+int belongIntoSetTable()
 
 
 
