@@ -31,7 +31,8 @@ int setTableVerify(const unsigned int T[], int n) {//2, 3, 5, 3, 5
 
 /**************/
 /* Question 2 */
-int do_belongIntoSetTable(int (*op) (const unsigned int [], int, unsigned int), const unsigned int T[], int length, unsigned int value) {
+int do_belongIntoSetTable(int (*op) (const unsigned int [], int, unsigned int),
+                        const unsigned int T[], int length, unsigned int value) {
     return op(T, length, value);
 }
 int belongIntoSetTable(const unsigned int T[], int length, unsigned int value) {
