@@ -23,7 +23,7 @@ int do_setTableVerify(set_table_verify op, const unsigned int T[], int length) {
 int setTableVerify(const unsigned int T[], int n) {//2, 3, 5, 3, 5
     for (int i = 0; i < n-1; ++i) {
         for (int j = i; j < n-1; ++j) {
-            if (T[i]==T[j+1]) return 0;
+            if (T[i]==T[j+1] || T[j] == 0) return 0;
         }
     }
     return 1;
