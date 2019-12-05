@@ -3,7 +3,7 @@
 
 int main() {
     const unsigned int T[] = {2, 9, 4, 8, 5};
-    int n = do_setTableVerify(setTableVerify, T, (sizeof(T)/ sizeof(T[0])));
-    printf("n = %d\n", n);
+    int n = do_belongIntoSetTable(belongIntoSetTable, T, (sizeof(T)/ sizeof(T[0])), 98);
+    printf("check if value is in or not = %d\n", n);
     return 0;
 }
