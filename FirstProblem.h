@@ -14,7 +14,7 @@
 /* Part A: Representation of finite sets by tables */
 /***************************************************/
 
-/***************/
+/**************/
 /* Question 1 */
 typedef int (*set_table_verify) (const unsigned int [], int);
 int do_setTableVerify(set_table_verify op, const unsigned int T[], int length) {
@@ -29,7 +29,7 @@ int setTableVerify(const unsigned int T[], int n) {//2, 3, 5, 3, 5
     return 1;
 }
 
-/***************/
+/**************/
 /* Question 2 */
 int do_belongIntoSetTable(int (*op) (const unsigned int [], int, int), const unsigned int T[], int length, int value) {
     return op(T, length, value);
@@ -41,8 +41,8 @@ int belongIntoSetTable(const unsigned int T[], int length, int value) {
     return 0;
 }
 
-/***************/
-/* Question 3*/
+/**************/
+/* Question 3 */
 void do_sortingSetTable(void (*op) (unsigned int [], int), unsigned int T[], int length) {
     op(T, length);
 }
@@ -58,7 +58,25 @@ void sortingSetTable(unsigned int T[], int n) {
     }
 }
 
-
+/***************/
+/* Question 4 */
+int do_T1_Inclusion_T2(int (*op) (const unsigned int [], const unsigned int [], int, int),
+                       const unsigned int T1[], const unsigned int T2[], int length1, int length2) {
+    return op(T1, T2, length1, length2);
+}
+int t1_inclusion_t2(const unsigned int T1[], const unsigned int T2[], int n1, int n2) {
+    for (int i = 0; i < n1; ++i) {
+        int flag = 0;
+        for (int j = 0; j < n2; ++j) {
+            if (T1[i] == T2[j]) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag == 0) return 0;
+    }
+    return 1;
+}
 
 
 #endif //CNC_2011_FIRSTPROBLEM_H
