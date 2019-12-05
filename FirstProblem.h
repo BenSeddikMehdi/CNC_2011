@@ -5,4 +5,21 @@
 #ifndef CNC_2011_FIRSTPROBLEM_H
 #define CNC_2011_FIRSTPROBLEM_H
 
+/***********************************/
+/* Operations on Mathematical Sets */
+/***********************************/
+
+/***************************************************/
+/* Part A: Representation of finite sets by tables */
+/***************************************************/
+
+
+
+
+
+
+
+
+
+
 #endif //CNC_2011_FIRSTPROBLEM_H
