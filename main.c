@@ -2,9 +2,9 @@
 #include "FirstProblem.h"
 
 int main() {
-    const unsigned int T1[] = {2, 8, 7, 4}, T2[] = {2, 8, 6, 9, 4};
-    int n = do_T1_Inclusion_T2(t1_inclusion_t2, T1, T2,
-            (int) (sizeof(T1)/ sizeof(T1[0])), (int) (sizeof(T2)/ sizeof(T2[0])));
-    printf("is T2 include T1 = %d", n);
+    unsigned int T1[] = {2, 3, 4, 5, 8}, T2[] = {1, 6, 4, 11, 7, 5, 9, 8};
+    int n1 = (int) (sizeof(T1)/ sizeof(T1[0])), n2 = (int) (sizeof(T2)/ sizeof(T2[0]));
+    int n = do_union_T1_T2(union_t1_t2, T1, T2
+            , n1, n2);
     return 0;
 }
