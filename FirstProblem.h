@@ -80,11 +80,11 @@ int t1_inclusion_t2(const unsigned int T1[], const unsigned int T2[], int n1, in
 
 /**************/
 /* Question 5 */
-int do_union_T1_T2(int (*op) (unsigned int [], unsigned int [], int, int),
+void do_union_T1_T2(void (*op) (unsigned int [], unsigned int [], int, int),
                     unsigned int T1[], unsigned int T2[], int length1, int length2) {
-    return op(T1, T2, length1, length2);
+    op(T1, T2, length1, length2);
 }
-int union_t1_t2(unsigned int T1[], unsigned int T2[], int n1, int n2) {
+void union_t1_t2(unsigned int T1[], unsigned int T2[], int n1, int n2) {
     if (n1 > n2) {
         int flag = 0;
         for (int j = 0; j < n2; ++j) {
@@ -134,6 +134,5 @@ int union_t1_t2(unsigned int T1[], unsigned int T2[], int n1, int n2) {
         }
         printf("\n");
     }
-    return 0;
 }
 #endif //CNC_2011_FIRSTPROBLEM_H
