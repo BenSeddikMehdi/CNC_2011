@@ -9,14 +9,15 @@
 /* Operations on Mathematical Sets */
 /***********************************/
 
-/***************************************************/
-/* Part B: Using Linked Lists*/
-/***************************************************/
 
-typedef struct setList {
-    int number;
-    struct setList *next;
-}setList_t;
+
+
+
+
+
+
+
+
 
 
 

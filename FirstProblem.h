@@ -136,4 +136,39 @@ void union_t1_t2(unsigned int T1[], unsigned int T2[], int n1, int n2) {
         printf("\n");
     }
 }
+
+/***************************************************/
+/* Part B: Using Linked Lists*/
+/***************************************************/
+
+typedef struct setList {
+    int number;
+    struct setList *next;
+} setList_t;
+
+/**************/
+/* Question 6 */
+
+setList_t *p = NULL;
+setList_t* do_create_linked_list(setList_t* (*op) (setList_t*, int [], int),
+                                setList_t* pList, int T[], int length) {
+    return op(pList, T, length);
+}
+setList_t* createLinkedList(setList_t* pList, int T[], int n) {
+    return NULL;
+}
+void do_inserting_value(void (*op) (setList_t*, int), setList_t* pList, int value) {
+    op(pList, value);
+}
+void insertingValue(int value) {
+
+}
+
+
+
+
+
+
+
+
 #endif //CNC_2011_FIRSTPROBLEM_H
