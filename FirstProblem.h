@@ -5,6 +5,7 @@
 #ifndef CNC_2011_FIRSTPROBLEM_H
 #define CNC_2011_FIRSTPROBLEM_H
 #include <string.h>
+#include <stdlib.h>
 
 /***********************************/
 /* Operations on Mathematical Sets */
@@ -150,18 +151,58 @@ typedef struct setList {
 /* Question 6 */
 
 setList_t *p = NULL;
-setList_t* do_create_linked_list(setList_t* (*op) (setList_t*, int [], int),
-                                setList_t* pList, int T[], int length) {
-    return op(pList, T, length);
+void do_create_linked_list(void (*op) (setList_t**, int),
+                                setList_t** pList, int a) {
+    op(pList, a);
 }
-setList_t* createLinkedList(setList_t* pList, int T[], int n) {
-    return NULL;
+
+setList_t* newNode(int a) {
+    setList_t* temp = malloc(sizeof(setList_t));
+    temp->number = a;
+    temp->next = NULL;
+    return temp;
 }
+void createLinkedList(setList_t** pList, int a) {
+    if ((*pList) == NULL) {
+        // Create new node
+        setList_t *new_node = newNode(a);
+        new_node->next = (*pList);
+        (*pList) = new_node;
+    } else
+        createLinkedList(&(*pList)->next, a);
+}
+setList_t* fillLinkedList(setList_t* pList, int T[], int n) {
+    for (int i = 0; i < n; ++i) {
+        do_create_linked_list(createLinkedList, &pList, T[i]);
+    }
+    return pList;
+}
+void printLinkedList(setList_t* pList) {
+    printf("List Number: ");
+    while (pList != NULL) {
+        printf("%d ", pList->number);
+        pList = pList->next;
+    }
+    printf("\n");
+}
+
 void do_inserting_value(void (*op) (setList_t*, int), setList_t* pList, int value) {
     op(pList, value);
 }
-void insertingValue(int value) {
-
+setList_t* insertingValue(setList_t* pList, int value) {
+    if (pList == NULL) {
+        pList = newNode(value);
+    } else {
+        if (value < pList->number) {
+            setList_t* new_node = newNode(value);
+            new_node->next = pList;
+            pList = new_node;
+        } else {
+            p =
+            insertingValue(pList->next, value);
+        }
+    }
+    return pList;
 }
 
 
