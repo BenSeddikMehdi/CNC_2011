@@ -30,9 +30,24 @@ int hamming_distance(const char S1[], const char S2[]) {
     return flag;
 }
 
-
-
-
+/**************/
+/* Question 2 */
+#define Nb 4
+#define L 5
+int do_language_hamming_distance(int (*op) (const char [Nb][L]),
+                        const char S1[Nb][L]) {
+    return op(S1);
+}
+int language_hamming_distance(const char S1[Nb][L]) {
+    int min = do_hamming_distance(hamming_distance, S1[0], S1[1]);
+    for (int i = 0; i < 3; ++i) {
+        for (int j = i+1; j < 4; ++j) {
+            if (do_hamming_distance(hamming_distance, S1[i], S1[j]) < min)
+                min = do_hamming_distance(hamming_distance, S1[i], S1[j]);
+        }
+    }
+    return min;
+}
 
 
 
