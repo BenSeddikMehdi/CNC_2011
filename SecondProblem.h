@@ -49,9 +49,20 @@ int language_hamming_distance(const char S1[Nb][L]) {
     return min;
 }
 
-
-
-
+/**************/
+/* Question 3-a*/
+void do_hamming_distance_numbers(void (*op) (char [], int),
+                                char bin[], int octet) {
+    op(bin, octet);
+}
+void hamming_distance_numbers(char bin[], int octet) {
+    if (octet >= 0 && octet < 256) {
+        for (int i = 0; i < 8; ++i) {
+            bin[8-i-1] = (char) (octet%2 + '0');
+            octet /= 2;
+        }
+    }
+}
 
 
 
