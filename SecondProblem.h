@@ -49,8 +49,8 @@ int language_hamming_distance(const char S1[Nb][L]) {
     return min;
 }
 
-/**************/
-/* Question 3-a*/
+/****************/
+/* Question 3-a */
 void do_byte_to_string_binary(void (*op) (char [], int),
                                 char bin[], int octet) {
     op(bin, octet);
@@ -65,7 +65,7 @@ void byte_to_string_binary(char bin[], int octet) {
     }
 }
 
-/**************/
+/****************/
 /* Question 3-b */
 int do_hamming_distance_numbers(int (*op) (int, int),
                             int A, int B) {
