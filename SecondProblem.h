@@ -11,12 +11,16 @@
 
 /**************/
 /* Question 1 */
-int do_hamming_distance(int (*op) (char [], char []), char S1[], char S2[]) {
+int do_hamming_distance(int (*op) (const char [], const char []),
+        const char S1[], const char S2[]) {
     return op(S1, S2);
 }
-int hamming_distance(char S1[], char S2[]) {
-
-    return 0;
+int hamming_distance(const char S1[], const char S2[]) {
+    int flag = 0;
+    for (int i = 0; S1[i] != '\0'; ++i) {
+        if (S1[i] != S2[i]) flag++;
+    }
+    return flag;
 }
 
 
