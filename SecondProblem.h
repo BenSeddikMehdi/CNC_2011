@@ -51,18 +51,40 @@ int language_hamming_distance(const char S1[Nb][L]) {
 
 /**************/
 /* Question 3-a*/
-void do_hamming_distance_numbers(void (*op) (char [], int),
+void do_byte_to_string_binary(void (*op) (char [], int),
                                 char bin[], int octet) {
     op(bin, octet);
 }
-void hamming_distance_numbers(char bin[], int octet) {
+void byte_to_string_binary(char bin[], int octet) {
     if (octet >= 0 && octet < 256) {
         for (int i = 0; i < 8; ++i) {
             bin[8-i-1] = (char) (octet%2 + '0');
             octet /= 2;
         }
+        bin[8] = '\0';
     }
 }
+
+/**************/
+/* Question 3-b */
+int do_hamming_distance_numbers(int (*op) (int, int),
+                            int A, int B) {
+    return op(A, B);
+}
+int hamming_distance_numbers(int A, int B) {
+    if (A >= 0 && A < 256 && B >= 0 && B < 256) {
+        char aBin[9], bBin[9];
+        do_byte_to_string_binary(byte_to_string_binary, aBin, A);
+        do_byte_to_string_binary(byte_to_string_binary, bBin, B);
+        return do_hamming_distance(hamming_distance,  aBin, bBin);
+    } else
+        return 0;
+}
+
+
+
+
+
 
 
 
