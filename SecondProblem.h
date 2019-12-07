@@ -14,6 +14,10 @@
 int do_hamming_distance(int (*op) (char [], char []), char S1[], char S2[]) {
     return op(S1, S2);
 }
+int hamming_distance(char S1[], char S2[]) {
+
+    return 0;
+}
 
 
 
