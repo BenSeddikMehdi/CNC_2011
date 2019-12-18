@@ -1,9 +1,16 @@
 #include <stdio.h>
-//#include "FirstProblem.h"
+#include "FirstProblem.h"
 #include "SecondProblem.h"
 
+#define N 5
+
 int main() {
-    printf("Hamming Distance between two numbers = %d",
-            do_hamming_distance_numbers(hamming_distance_numbers, 255, 0));
+    setList_t* plist = NULL;
+    do_create_linked_list(createLinkedList, &plist, 7);
+    for (int i = 0; i < N; ++i) {
+        do_create_linked_list(createLinkedList, &plist, N-i-1);
+    }
+    printLinkedList(plist);
+    plist = NULL;
     return 0;
 }
