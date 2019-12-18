@@ -150,7 +150,6 @@ typedef struct setList {
 /**************/
 /* Question 6 */
 
-
 void do_create_linked_list(void (*op) (setList_t**, int),
                                 setList_t** pList, int a) {
     op(pList, a);
