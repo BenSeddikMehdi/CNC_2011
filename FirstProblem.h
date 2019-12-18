@@ -192,15 +192,20 @@ void printLinkedList(setList_t* pList) {
     printf("\n");
 }
 
-setList_t* do_inserting_value(setList_t* (*op) (setList_t*, setList_t*, int),
-        setList_t* pList, setList_t* p, int value) {
-    return op(pList, p, value);
+setList_t* do_inserting_value(setList_t* (*op) (setList_t*, int),
+        setList_t* pList, int value){
+    return op(pList, value);
 }
 setList_t* insertingValue(setList_t* pList, int value) {
     setList_t *p;
+    begin:
     if (pList != NULL) {
         if (value > pList->data) {
-
+            p = newNode(value)->next;
+            pList = p;
+        } else {
+            pList = pList->next;
+            goto begin;
         }
     } else
         pList = newNode(value);
