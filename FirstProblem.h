@@ -197,13 +197,15 @@ setList_t* do_inserting_value(setList_t* (*op) (setList_t*, int),
     return op(pList, value);
 }
 setList_t* insertingValue(setList_t* pList, int value) {
-    setList_t *p;
+    setList_t *p = NULL, *prev = NULL;
     begin:
     if (pList != NULL) {
         if (value > pList->data) {
-            p = newNode(value)->next;
-            pList = p;
+            p = newNode(value);
+            p->next = pList;
+            prev->next = p;
         } else {
+            prev = pList;
             pList = pList->next;
             goto begin;
         }
